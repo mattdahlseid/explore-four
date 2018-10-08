@@ -10,7 +10,7 @@ This app was created as the final project of [Udacity's Front End Developer Nano
 
 # Getting Started
 
-Check out the live [Explore Four App](https://mattdahlseid.github.io/explore-four/), hosted by GitHub Pages.
+Check out the live [Explore Four App](https://mattdahlseid.github.io/explore-four/), hosted on [GitHub Pages](https://pages.github.com/).
 
 ### For Developers
 
@@ -28,7 +28,7 @@ Insert your key here: `googleMapURL="https://maps.googleapis.com/maps/api/js?v=3
 * This project was boostrapped with [`create-react-app`](https://github.com/facebookincubator/create-react-app)
 * [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/tutorial)
 * [`react-google-maps`](https://github.com/tomchentw/react-google-maps) integration component
-* [`react-dom`]
+* [`react-dom`](https://www.npmjs.com/package/react-dom)
 * ['escape-string-regexp`](https://github.com/sindresorhus/escape-string-regexp)
 * [National Park Service API](https://www.nps.gov/subjects/developer/index.htm)
 * Google Fonts - [Raleway](https://fonts.google.com/specimen/Raleway?selection.family=Raleway), [Assistant](https://fonts.google.com/specimen/Assistant)
