@@ -13,8 +13,8 @@ const MyMapComponent = withScriptjs(withGoogleMap((props) =>
        // get info for each marker by matching marker.id to park.id 
        const parkInfo = props.parks.find(park => park.id === marker.id);
        // icon source https://www.kisspng.com/png-google-maps-computer-icons-symbol-map-marker-967954/
-       const markerBlack = "/images/black_marker.png";
-       const markerRed = "/images/red_marker.png";
+       const markerBlack = "images/black_marker.png";
+       const markerRed = "images/red_marker.png";
 
        return (
         <Marker 
