@@ -8,7 +8,7 @@ This app was created as the final project of [Udacity's Front End Developer Nano
 
 <a href="https://mattdahlseid.github.io/explore-four/" target=”_blank”><img src="https://preview.ibb.co/h4VDEU/e4_nat_bridges.png" alt="e4_nat_bridges" border="0"></a>
 
-# Getting Started
+## Getting Started
 
 Check out the live [Explore Four App](https://mattdahlseid.github.io/explore-four/), hosted on [GitHub Pages](https://pages.github.com/).
 
@@ -23,7 +23,7 @@ Navigate into the `explore-four/src/components/Map.js` file.
 Insert your key here: `googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&key=[REPLACE KEY WITH YOUR OWN]`.
 6. Visit nps.gov for [National Park Service Developer resources](https://www.nps.gov/subjects/developer/index.htm).
 
-# Dependencies
+## Dependencies
 
 * This project was boostrapped with [`create-react-app`](https://github.com/facebookincubator/create-react-app)
 * [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/tutorial)
@@ -36,7 +36,7 @@ Insert your key here: `googleMapURL="https://maps.googleapis.com/maps/api/js?v=3
 * Snazzy Maps - Map Styles adapted from Ann Kwilinski's [Antiqued Gold](https://snazzymaps.com/style/12903/antiqued-gold)
 * kisspng - [black map marker icon](https://www.kisspng.com/png-google-maps-computer-icons-symbol-map-marker-967954/)
 
-# Acknowledgments
+## Acknowledgments
 
 Fellow Udacity student [Forrest Walker](https://github.com/forrestw92) has a great [YouTube walkthrough](https://www.youtube.com/watch?v=ktc8Gp9jD1k&list=PL4rQq4MQP1crXuPtruu_eijgOUUXhcUCP) that helped me get unstuck when I was working on getting my markers' infoWindows to open when clicking on their associated list items.
 Members of the awesome Udacity FEND slack community shared a great deal of helpful advice and resources throughout the course.
