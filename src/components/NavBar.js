@@ -14,7 +14,7 @@ function NavBar (props) {
             onClick={props.toggleTab} 
             title={ props.sideBarVisible ? "Close Menu" : "Open Menu" } 
             >
-            <div className="button-background" style={{ padding: props.sideBarVisible ? "5px" : "10px", backgroundColor: props.sideBarVisible ? "rgb(236, 116, 116)" : "black", border: props.sideBarVisible ? "4px solid rgb(236, 116, 116)" : "4px solid black" }}>
+            <div className="button-background" style={{ padding: props.sideBarVisible ? "3px" : "7px", backgroundColor: props.sideBarVisible ? "rgb(236, 116, 116)" : "black", border: props.sideBarVisible ? "4px solid rgb(236, 116, 116)" : "4px solid black" }}>
             <div className="button-square" style={{ backgroundColor: props.sideBarVisible ? "black" : "rgb(236, 116, 116)"}}></div>
             <div className="button-square" style={{ backgroundColor: props.sideBarVisible ? "black" : "rgb(236, 116, 116)"}}></div>
             <div className="button-square" style={{ backgroundColor: props.sideBarVisible ? "black" : "rgb(236, 116, 116)"}}></div>
@@ -24,7 +24,7 @@ function NavBar (props) {
 
             <header className="navheader" style={{ fontWeight: props.sideBarVisible ? 400 : 900, backgroundPosition: props.sideBarVisible ? "left bottom" : "right bottom" }}>
 
-                <div className="text" style={{ color: props.sideBarVisible ? "white" : "black", fontSize: props.sideBarVisible ? "26px" : "28px", paddingTop: props.sideBarVisible ? "10px" : "8px"}}>
+                <div className="text" style={{ color: props.sideBarVisible ? "white" : "black", fontSize: props.sideBarVisible ? "21px" : "23px", paddingTop: props.sideBarVisible ? "7px" : "7px"}}>
                     { props.sideBarVisible ? 'FIND YOUR PARK' : 'EXPLORE FOUR' }
                 </div>
 

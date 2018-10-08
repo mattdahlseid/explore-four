@@ -15,17 +15,18 @@ const MyMapComponent = withScriptjs(withGoogleMap((props) =>
        // icon source https://www.kisspng.com/png-google-maps-computer-icons-symbol-map-marker-967954/
        const markerBlack = "/images/black_marker.png";
        const markerRed = "/images/red_marker.png";
+
        return (
         <Marker 
           key={index} 
           tabIndex="0"
           position={{ lat: parseFloat(marker.lat), lng: parseFloat(marker.lng) }}
-          onClick={() => props.handleMarkerClick(marker)}
+          onClick={ () => props.handleMarkerClick(marker) }
           title={ marker.fullName }
           icon={ marker.isOpen ? {
             url: markerRed,
-            scaledSize: new window.google.maps.Size(25, 30)
-          } : { url: markerBlack, scaledSize: new window.google.maps.Size(25, 30) }}
+            scaledSize: new window.google.maps.Size(20, 25)
+          } : { url: markerBlack, scaledSize: new window.google.maps.Size(20, 25) }}
         >
     { marker.isOpen &&
     <InfoWindow>
@@ -73,7 +74,7 @@ class Map extends Component {
   render() {
     return ( 
 
-      <main className="theMap" style={{ width: this.props.sideBarVisible ? "calc(100% - 370px)" : "100%" }}>
+      <main className="theMap" style={{ width: this.props.sideBarVisible ? "calc(100% - 300px)" : "100%" }}>
       { /* Display error over map if no data received from NPS API */ }
       {this.props.fetchError && (
         <div className="fetchErrorMap">
@@ -91,7 +92,7 @@ class Map extends Component {
           isMarkerShown
           googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyB3z0ZwjWqr2h3_x2vbPahVhsn86srQNiw"
           loadingElement={<div style={{ height: `100vh` }} />}
-          containerElement={<div style={{ height: `calc(100% - 50px)` }} />}
+          containerElement={<div style={{ height: `calc(100% - 40px)` }} />}
           mapElement={<div className="theMap" />}
         />
       )}

@@ -8,7 +8,7 @@ function SideBar (props) {
 
     return (
         
-        <div className="sidebar" style={{ marginLeft: props.sideBarVisible ? "0px" : "-370px", boxShadow: props.sideBarVisible ? "10px 0px 15px rgba(0, 0, 0, 0.3)" : "none" }} >
+        <div className="sidebar" style={{ marginLeft: props.sideBarVisible ? "0px" : "-300px", boxShadow: props.sideBarVisible ? "10px 0px 15px rgba(0, 0, 0, 0.3)" : "none" }} >
             <StateSelector {...props} />
             <DesignationSelector {...props} />
             <Search {...props} />

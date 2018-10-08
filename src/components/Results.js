@@ -22,13 +22,12 @@ function Results (props) {
                         key={park.id}                            
                     >
                         <div className="results-park">                
-                        <span className="results-park-name">
+                        <p className="results-park-name">
                             {park.name}
-                        </span>
-                        <br></br>
-                        <span className="results-park-designation">
+                        </p>
+                        <p className="results-park-designation">
                             {park.designation}
-                        </span>
+                        </p>
                         </div>
                         <br></br>
                         <div className="results-website">

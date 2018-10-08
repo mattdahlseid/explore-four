@@ -6,7 +6,7 @@
 /************ NAVBAR STYLES *****************/
 .navBar {
   width: 100%;
-  height: 50px;
+  height: 40px;
   background-color: black;
   position: relative;
   z-index: 2;
@@ -14,11 +14,11 @@
 }
 
 .navheader {
-  letter-spacing: 5px;
-  width: 370px;
+  letter-spacing: 4px;
+  width: 300px;
   font-family: 'Raleway', sans-serif;
   position: absolute;
-  padding-left: 65px;
+  padding-left: 52px;
   overflow: hidden;
   background: linear-gradient(to right, black 50%, white 50%);
   background-size: 200% 100%;
@@ -32,44 +32,9 @@
 }
 
 
-/************* MAP STYLES ********************/
-.fetchErrorMap {
-  display: block;
-  width: 100%;
-  height: 50px;
-  position: absolute;
-  font-size: 30px;
-  color: black;
-  z-index: 2;
-  text-align: center;
-}
-
-.fetchErrorMapBox {
-  border: 5px solid black;
-  margin: 0 auto;
-  width: 300px;
-  height: 50px;
-  color: white;
-  font-size: 17px;
-  padding-top: 8px;
-  letter-spacing: 2px;
-  background-color: rgba(0,0,0,0.5);
-  font-family: 'Raleway', sans-serif;
-}
-
-.theMap {
-  width: 100%;
-  height: calc(100vh - 50px);
-  float: right;
-  right: 0;
-  position: absolute;
-  display: block;
-  transition: all 0.5s ease;
-}
-
 .toggleTab {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   display: block;
   position: absolute;
   outline: none;
@@ -98,13 +63,50 @@
   transition: all 0.3s ease;
 }
 
+
+/************* MAP STYLES ********************/
+.fetchErrorMap {
+  display: block;
+  width: 100%;
+  height: 40px;
+  position: absolute;
+  font-size: 30px;
+  color: black;
+  z-index: 2;
+  text-align: center;
+}
+
+.fetchErrorMapBox {
+  border: 5px solid black;
+  margin: 0 auto;
+  width: 300px;
+  height: 50px;
+  color: white;
+  font-size: 15px;
+  padding-top: 8px;
+  letter-spacing: 2px;
+  background-color: rgba(0,0,0,0.5);
+  font-family: 'Raleway', sans-serif;
+}
+
+.theMap {
+  width: 100%;
+  height: calc(100vh - 40px);
+  float: right;
+  right: 0;
+  position: absolute;
+  display: block;
+  transition: all 0.5s ease;
+  background-size: cover;
+}
+
 .iw {
-  width: 340px;
+  width: 272px;
   max-width: 80vw;
   background-color: rgb(244, 247, 240);
   font-family: 'Raleway', sans-serif;
   z-index: 2;
-  padding: 10px;
+  padding: 8px;
   border: 1px solid black;
 }
 
@@ -112,7 +114,7 @@
   width: 100%;
   background-color: black;
   color: white;
-  font-size: 18px;
+  font-size: 15px;
   text-align: center;
   padding: 8px 10px;
   text-transform: uppercase;
@@ -121,30 +123,31 @@
 }
 
 .iw-designation {
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 400;
 }
 
 .iw-image {
   object-fit: cover;
   width: 100%;
-  height: 180px;
+  height: 144px;
 }
 
 .iw-image-credit {
   width: 100%;
   text-align: right;
+  font-size: 11px;
 }
 
 .iw-description {
   margin-top: 8px;
   font-family: 'Assistant', sans-serif;
-  font-size: 16px;
+  font-size: 13px;
 }
 
 /************* MAP FAIL SCREEN *******************/
 .mapFailBG {
-  height: calc(100vh - 50px);
+  height: calc(100vh - 40px);
   width: 100%;
   background-size: cover;
   position: relative;
@@ -169,14 +172,14 @@
   font-weight: 400;
   text-transform: uppercase;
   color: white;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 /***************** MENU STYLES **********************/
 
 .sidebar {
-  height: calc(100vh - 50px);
-  width: 370px;
+  height: calc(100vh - 40px);
+  width: 300px;
   max-width: calc(100%);
   background-color: rgb(227, 233, 218);
   position: fixed;
@@ -189,31 +192,24 @@
 
 /******************** SELECTORS *********************/
 
-.selector-container {
-  width: 100%;
-  height: 234px;
-  margin-top: 14px;
-  background-color: rgb(227, 233, 218);
-}
-
 .state-container {
   width: 90%;
-  height: 180px;
+  height: 144px;
   display: flex;
   flex-wrap: wrap;
-  margin: 16px auto 0 auto;
+  margin: 13px auto 0 auto;
   background-color: rgb(227, 233, 218);
 }
 
 .state-box {
   width: 46%;
-  height: 60px;
+  height: 48px;
   background-color: rgb(65, 65, 65);
-  margin: 5px auto;
+  margin: 4px auto;
   outline: none;
   border: none;
   transition: all 0.3s ease;
-  font-size: 26px;
+  font-size: 21px;
   letter-spacing: 3px;
   cursor: pointer;
   font-family: 'Raleway', sans-serif;
@@ -235,8 +231,8 @@
 
 .state-box-four-corners {
   width: 100%;
-  margin: 8px auto;
-  height: 30px;
+  margin: 7px auto;
+  height: 24px;
   z-index: 2;
   outline: none;
   cursor: pointer;
@@ -245,38 +241,28 @@
 
 /******************* INPUTS *********************/
 
-.inputs-container {
-  width: 90%;
-  height: 100px;
-  background-color: rgb(227, 233, 218);
-  margin: 2px auto;
-  text-align: center;
-  color: white;
-  letter-spacing: 2px;
-}
-
 .designation-selector {
   width: 90%;
-  height: 35px;
+  height: 28px;
   padding: 0 10px;
-  margin: 16px auto 8px auto;
-  font-size: 15px;
+  margin: 12px auto 6px auto;
+  font-size: 12px;
   font-family: 'Raleway', sans-serif;
 }
 
 .search-box {
   width: 90%;
   margin: 0 auto;
-  height: 80px;
+  height: 64px;
   display: block;
   position: relative;
 }
 
 .search-bar {
   width: 100%;
-  height: 35px;
+  height: 28px;
   padding: 0 10px;
-  font-size: 15px;
+  font-size: 12px;
   margin: 2px auto;
   font-family: 'Raleway', sans-serif;
 }
@@ -285,12 +271,12 @@
   color: white;
   font-family: 'Raleway', sans-serif;
   text-align: center;
-  height: 25px;
+  height: 22px;
   background-color: rgb(0, 0, 0);
   text-transform: uppercase;
   letter-spacing: 2px;
-  font-size: 13px;
-  padding-top: 5px;
+  font-size: 11px;
+  padding-top: 4px;
   position: absolute;
   width: 100%;
   bottom: 0;
@@ -313,13 +299,13 @@
   padding: 20px;
   text-align: center;
   letter-spacing: 1px;
-  font-size: 12px;
+  font-size: 9px;
   font-family: 'Assistant', sans-serif;
 }
 
 .results-box {
   width: 90%;
-  height: calc(100% - 358px);
+  height: calc(100% - 286px);
   background-color: black;/*rgb(31, 44, 44)*/
   margin: 0 auto;
   overflow-y: scroll;
@@ -351,12 +337,12 @@
 }
 
 .results-box li {
-  height: 90px;
+  height: 72px;
   background-color: rgb(65, 65, 65);
   color: white;
-  border-bottom: 1px solid rgb(255, 255, 255);
+  border-bottom: 0.5px solid rgb(255, 255, 255);
   transition: all 0.3s ease;
-  padding: 15px;
+  padding: 12px;
   width: 100%;
   display: table;
   cursor: pointer;
@@ -364,7 +350,7 @@
 
 .results-box li:last-child {
   border-bottom: 5px solid black;
-  height: 85px;
+  height: 77px;
 }
 
 .results-box li:hover {
@@ -391,7 +377,7 @@
 
 .results-park-name {
   width: 100%;
-  font-size: 18px;
+  font-size: 15px;
   letter-spacing: 2px;
   text-transform: uppercase;
   font-weight: 600;
@@ -399,23 +385,25 @@
 
 .results-park-designation {
   width: 100%;
-  text-align: center;
+  text-align: left;
   text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 1px;
+  padding-left: 0;
 }
 
 .results-website {
   width: 100%;
-  height: 30px;
-  right: 0;
-  bottom: 0;
   display: table;
-  height: 100%;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .fa-globe {
   color: white;
   transition: all 0.3s ease;
+  display: table-cell;
+  vertical-align: middle;
+  line-height: 10px;
 }
 
 .fa-globe:hover {
@@ -424,10 +412,10 @@
 
 /******************** FOOTER *********************/
 footer {
-  height: 30px;
+  height: 22px;
   width: 100%;
   background-color: black;
-  font-size: 12px;
+  font-size: 10px;
   color: white;
   letter-spacing: 1px;
   padding-top: 5px;

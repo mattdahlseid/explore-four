@@ -23,7 +23,7 @@ class App extends Component {
         lat: 36.998981,
         lng: -109.045189
       },
-      zoomState: 6,
+      zoomState: 5.6,
       sideBarVisible: false,
       query: '', 
       timestamp: ''
@@ -119,7 +119,7 @@ class App extends Component {
       this.setState({ 
         filteredParks: this.state.parks.filter(park => park.states.includes('CO')),
         filteredParksBase: this.state.parks.filter(park => park.states.includes('CO')),
-        centerState: {lat: 39.250051, lng: -105.782067},
+        centerState: {lat: 39.150051, lng: -105.782067},
         zoomState: 7,
         filteredMarkers: coMarkers,
         filteredMarkersBase: coMarkers
@@ -130,7 +130,7 @@ class App extends Component {
       this.setState({ 
         filteredParks: this.state.parks.filter(park => park.states.includes('NM')),
         filteredParksBase: this.state.parks.filter(park => park.states.includes('NM')),
-        centerState: {lat: 34.51994, lng: -105.87009},
+        centerState: {lat: 34.61994, lng: -105.87009},
         zoomState: 7,
         filteredMarkers: nmMarkers,
         filteredMarkersBase: nmMarkers
@@ -141,7 +141,7 @@ class App extends Component {
       this.setState({ 
         filteredParks: this.state.parks.filter(park => park.states.includes('UT')),
         filteredParksBase: this.state.parks.filter(park => park.states.includes('UT')),
-        centerState: {lat: 39.52098, lng: -111.093731},
+        centerState: {lat: 39.36098, lng: -111.093731},
         zoomState: 7,
         filteredMarkers: utMarkers,
         filteredMarkersBase: utMarkers
@@ -153,7 +153,7 @@ class App extends Component {
         filteredParks: this.state.parks.filter(park => park.states),
         filteredParksBase: this.state.parks.filter(park => park.states),
         centerState: {lat: 36.998981, lng: -109.045189},
-        zoomState: 6,
+        zoomState: 5.6,
         filteredMarkers: allStateMarkers,
         filteredMarkersBase: allStateMarkers
       });
