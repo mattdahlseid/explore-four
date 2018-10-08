@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow } from "react-google-maps";
 import MapStyle from '../MapStyle';
+import black_marker from './black_marker.png';
+import red_marker from './red_marker.png';
+import all_dunes from './all_dunes.jpg';
 
 const MyMapComponent = withScriptjs(withGoogleMap((props) =>
   <GoogleMap
@@ -13,8 +16,6 @@ const MyMapComponent = withScriptjs(withGoogleMap((props) =>
        // get info for each marker by matching marker.id to park.id 
        const parkInfo = props.parks.find(park => park.id === marker.id);
        // icon source https://www.kisspng.com/png-google-maps-computer-icons-symbol-map-marker-967954/
-       const markerBlack = "images/black_marker.png";
-       const markerRed = "images/red_marker.png";
 
        return (
         <Marker 
@@ -24,9 +25,9 @@ const MyMapComponent = withScriptjs(withGoogleMap((props) =>
           onClick={ () => props.handleMarkerClick(marker) }
           title={ marker.fullName }
           icon={ marker.isOpen ? {
-            url: markerRed,
+            url: red_marker,
             scaledSize: new window.google.maps.Size(20, 25)
-          } : { url: markerBlack, scaledSize: new window.google.maps.Size(20, 25) }}
+          } : { url: black_marker, scaledSize: new window.google.maps.Size(20, 25) }}
         >
     { marker.isOpen &&
     <InfoWindow>
@@ -99,7 +100,7 @@ class Map extends Component {
       {this.state.authError && (
         // failed to load screen
         <div className="mapFailBG">
-        <img className="mapFailImage" src="/images/all_dunes_m.jpg" alt="A view over an expanse of sand dunes at Great Sand Dunes National Park"></img>
+        <img className="mapFailImage" src={all_dunes} alt="A view over an expanse of sand dunes at Great Sand Dunes National Park"></img>
           <div className="mapFailMessageContainer">
             <h1 className="mapFailMessage">
             Google Maps<br></br>Failed to Load</h1>
