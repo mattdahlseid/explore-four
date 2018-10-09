@@ -11,7 +11,7 @@ function Search (props) {
                 onChange={(event) => props.updateQuery(event.target.value)}
                 tabIndex={props.sideBarVisible ? "0" : "-1" }
                 role="searchbox"
-                aria-label="search bar"
+                aria-label="search by park name"
             >
             </input>
             

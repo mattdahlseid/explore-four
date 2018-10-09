@@ -23,6 +23,11 @@ Navigate into the `explore-four/src/components/Map.js` file.
 Insert your key here: `googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&key=[REPLACE KEY WITH YOUR OWN]`.
 6. Visit nps.gov for [National Park Service Developer resources](https://www.nps.gov/subjects/developer/index.htm).
 
+Note: A service worker is implemented only in the production build. To run the application in the production build, run: 
+* `npm run build`
+* `serve -s build`
+* Navigate to the localhost
+
 ## Dependencies
 
 * This project was boostrapped with [`create-react-app`](https://github.com/facebookincubator/create-react-app)

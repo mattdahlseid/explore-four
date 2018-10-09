@@ -13,7 +13,7 @@ function SideBar (props) {
             <DesignationSelector {...props} />
             <Search {...props} />
             <Results {...props} />
-            <footer>
+            <footer role="contentinfo">
                 National Park Service Info from <a href="https://www.nps.gov/subjects/developer/index.htm" target="_blank" rel="noopener noreferrer" tabIndex={props.sideBarVisible ? "0" : "-1" }>NPS Data API</a>
             </footer>
         </div>

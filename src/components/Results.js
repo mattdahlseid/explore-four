@@ -2,19 +2,19 @@ import React from 'react';
 
 function Results (props) {
     return (
-        <div className="results-box" aria-label="Search Results" role="list" tabIndex={props.sideBarVisible ? "0" : "-1" }>
+        <div className="results-box" tabIndex={props.sideBarVisible ? "0" : "-1" }>
         { /* Message to be displayed when there's an API fetch error */ }
         {props.fetchError && (
-            <div className="fetchErrorResults">
+            <div className="fetchErrorResults" role="alert" aria-label="unable to load park information">
                 <h1>Error fetching data from National Park Service API</h1>
             </div>
         )}
         {!props.fetchError && (
-            <ul>
+            <ul aria-label="Search Results">
                 { // create list item for each filtered park
                 props.filteredParks.map(park => (
                     <li 
-                        className="parkListItem"                        
+                        className="parkListItem"
                         role="button"
                         tabIndex={props.sideBarVisible ? "0" : "-1" }
                         onKeyPress={() => props.handleParkClick(park)}

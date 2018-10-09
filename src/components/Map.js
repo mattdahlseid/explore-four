@@ -24,7 +24,7 @@ const MyMapComponent = withScriptjs(withGoogleMap((props) =>
           position={{ lat: parseFloat(marker.lat), lng: parseFloat(marker.lng) }}
           onClick={ () => props.handleMarkerClick(marker) }
           title={ marker.fullName }
-          icon={ marker.isOpen ? {
+          icon={ marker.isOpen || arr.length === 1 ? {
             url: red_marker,
             scaledSize: new window.google.maps.Size(20, 25)
           } : { url: black_marker, scaledSize: new window.google.maps.Size(20, 25) }}
@@ -34,10 +34,9 @@ const MyMapComponent = withScriptjs(withGoogleMap((props) =>
       <div className="iw">
       <div className="iw-park-name">
         {parkInfo.name}
-        <br></br>
-        <span className="iw-designation">
+        <p><span className="iw-designation">
           {parkInfo.designation}
-        </span>
+        </span></p>
       </div>
       <a href={parkInfo.url} target="_blank" rel="noopener noreferrer" title={ `Visit ${parkInfo.name} website` } >
       <img src={parkInfo.images[0].url} className="iw-image" alt={parkInfo.images[0].altText}/>
@@ -60,25 +59,34 @@ class Map extends Component {
   constructor() {
     super();
     this.state ={
-      authError: false
+      hasError: false
     }
+  }
+
+  /* documentation for catching component load failure (doesn't crash the page if Google Maps fails to load) https://reactjs.org/blog/2017/07/26/error-handling-in-react-16.html#introducing-error-boundaries */
+ componentDidCatch() {
+    this.setState({
+      hasError: true
+    })
   }
 
   /* documentation for catching Google Maps authentication failure https://developers.google.com/maps/documentation/javascript/events#auth-errors
   */
   componentDidMount() {
     window.gm_authFailure = () => {
-      this.setState({ authError: true });
+      this.setState({ 
+        hasError: true 
+      });
     };
   }
 
   render() {
     return ( 
 
-      <main className="theMap" style={{ width: this.props.sideBarVisible ? "calc(100% - 300px)" : "100%" }}>
+      <main role="main" className="theMap" aria-label="map" style={{ width: this.props.sideBarVisible ? "calc(100% - 300px)" : "100%" }}>
       { /* Display error over map if no data received from NPS API */ }
       {this.props.fetchError && (
-        <div className="fetchErrorMap">
+        <div className="fetchErrorMap" role="alert" aria-label="error fetching location data">
           <div className="fetchErrorMapBox">
             <p>Error fetching location data</p>
           </div>
@@ -86,7 +94,7 @@ class Map extends Component {
       )}
           
       { /* Check for load error. If no error, show map. If there is an error, show failed to load screen */ }
-      {!this.state.authError && (
+      {!this.state.hasError && (
         <MyMapComponent
           role="application"
           {...this.props}
@@ -97,7 +105,7 @@ class Map extends Component {
           mapElement={<div className="theMap" />}
         />
       )}
-      {this.state.authError && (
+      {this.state.hasError && (
         // failed to load screen
         <div className="mapFailBG">
         <img className="mapFailImage" src={all_dunes} alt="A view over an expanse of sand dunes at Great Sand Dunes National Park"></img>
