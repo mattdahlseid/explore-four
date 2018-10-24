@@ -24,10 +24,11 @@ const MyMapComponent = withScriptjs(withGoogleMap((props) =>
           position={{ lat: parseFloat(marker.lat), lng: parseFloat(marker.lng) }}
           onClick={ () => props.handleMarkerClick(marker) }
           title={ marker.fullName }
-          icon={ marker.isOpen || arr.length === 1 ? {
-            url: red_marker,
-            scaledSize: new window.google.maps.Size(20, 25)
-          } : { url: black_marker, scaledSize: new window.google.maps.Size(20, 25) }}
+          icon={ marker.isOpen || marker.isHovered || arr.length === 1 ? {
+            url: red_marker, scaledSize: new window.google.maps.Size(20, 25)
+          } : { 
+            url: black_marker, scaledSize: new window.google.maps.Size(20, 25) 
+          }}
         >
     { marker.isOpen &&
     <InfoWindow>

@@ -13,13 +13,15 @@ function Results (props) {
             <ul aria-label="Search Results">
                 { // create list item for each filtered park
                 props.filteredParks.map(park => (
-                    <li 
+                    <li
                         className="parkListItem"
                         role="button"
                         tabIndex={props.sideBarVisible ? "0" : "-1" }
                         onKeyPress={() => props.handleParkClick(park)}
                         onClick={() => props.handleParkClick(park)} 
-                        key={park.id}                            
+                        onMouseEnter={() => props.handleParkHover(park)}
+                        onMouseLeave={() => props.handleParkExit(park)}
+                        key={park.id}      
                     >
                         <div className="results-park">                
                         <p className="results-park-name">

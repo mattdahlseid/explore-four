@@ -38,6 +38,8 @@ class App extends Component {
     this.handleMarkerClick = this.handleMarkerClick.bind(this);
     this.handleParkClick = this.handleParkClick.bind(this);
     this.closeMarkers = this.closeMarkers.bind(this);
+    this.handleParkHover = this.handleParkHover.bind(this);
+    this.handleParkExit = this.handleParkExit.bind(this);
 
   }
 
@@ -64,6 +66,7 @@ class App extends Component {
             lng: realLng,
             isOpen: false,
             isVisible: true,
+            isHovered: false,
             id: park.id,
             fullName: park.fullName,
             state: park.states,
@@ -256,7 +259,7 @@ class App extends Component {
       marker.isOpen = false;
       return marker;
     })
-    this.setState({ markers: Object.assign(this.state.markers, markers) })
+    this.setState({ markers: Object.assign(this.state.markers, markers)} )
   }
 
   // open infoWindow of clicked marker
@@ -266,10 +269,33 @@ class App extends Component {
     this.setState({ markers: Object.assign(this.state.markers, marker) })
   }
 
-  // open infoWindow of appropriate marker when listItem is clicked 
+  /* 
+   * open infoWindow of appropriate marker when listItem is clicked 
+   * close open infoWindows before opening a new one
+  */
   handleParkClick = (park) => {
     const marker = this.state.markers.find(marker => marker.id === park.id);
-    this.handleMarkerClick(marker);
+    if (marker.isOpen) {
+      this.closeInfoWindows();
+    } else {
+    this.closeInfoWindows();
+    marker.isOpen = true;
+    this.setState({ markers: Object.assign(this.state.markers, marker) })
+    }
+  }
+
+  // highlight marker when a park list item is hovered over
+  handleParkHover = (park) => {
+    const marker = this.state.markers.find (marker => marker.id === park.id);
+    marker.isHovered = true;
+    this.setState({ markers: Object.assign(this.state.markers, marker) })
+  }
+
+  // undo marker highlight when cursor leaves park list item
+  handleParkExit = (park) => {
+    const marker = this.state.markers.find (marker => marker.id === park.id);
+    marker.isHovered = false;
+    this.setState({ markers: Object.assign(this.state.markers, marker) })
   }
 
   // close marker infoWindow when map is clicked
@@ -289,7 +315,7 @@ class App extends Component {
 
             <NavBar {...this.state} toggleTab={this.toggleTab} />
             
-            <SideBar {...this.state} filterByQuery={this.filterByQuery} filterByDesignation={this.filterByDesignation} selectByState={this.selectByState} handleParkClick={this.handleParkClick} updateQuery={this.updateQuery} />
+            <SideBar {...this.state} filterByQuery={this.filterByQuery} filterByDesignation={this.filterByDesignation} selectByState={this.selectByState} handleParkClick={this.handleParkClick} handleParkHover={this.handleParkHover} handleParkExit={this.handleParkExit} updateQuery={this.updateQuery} />
             
             <Map {...this.state} handleMarkerClick={this.handleMarkerClick} closeMarkers={this.closeMarkers} />
 
