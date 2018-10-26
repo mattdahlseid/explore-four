@@ -382,6 +382,10 @@
   bottom: 0;
 }
 
+.results-box li a:focus {
+  outline: none;
+}
+
 .results-park {
   width: 85%;
   display: table-cell;
@@ -421,7 +425,7 @@
 }
 
 .fa-globe:hover {
-  color: rgb(236, 116, 116);
+  color:  rgb(255, 97, 97);
 }
 
 /******************** FOOTER *********************/
