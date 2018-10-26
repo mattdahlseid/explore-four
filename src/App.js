@@ -16,6 +16,7 @@ class App extends Component {
       parks: [],
       filteredParks: [],
       filteredParksBase: [],
+      parksTest: [],
       markers: [],
       filteredMarkers: [],
       filteredMarkersBase: [],
@@ -40,6 +41,8 @@ class App extends Component {
     this.closeMarkers = this.closeMarkers.bind(this);
     this.handleParkHover = this.handleParkHover.bind(this);
     this.handleParkExit = this.handleParkExit.bind(this);
+    this.handleMarkerHover = this.handleMarkerHover.bind(this);
+    this.handleMarkerExit = this.handleMarkerExit.bind(this);
 
   }
 
@@ -49,10 +52,14 @@ class App extends Component {
     fetch(`${api}`)
       .then(res => res.json())
       .then(res => {
+        const parksList = res.data;
+        parksList.forEach(park => {
+          park.isSelected = false;
+        });
         this.setState({
-          parks: res.data,
-          filteredParks: res.data,
-          filteredParksBase: res.data
+          parks: parksList,
+          filteredParks: parksList,
+          filteredParksBase: parksList
         })
       })
       // create markers for map by mapping through filteredParks
@@ -94,6 +101,8 @@ class App extends Component {
   
   // narrow results by state
   selectByState(state) {
+    // revert to no selected parks in results list
+    this.unselectParks();
     // **** All steps repeated for each state and an all states option  ****
     if (state.includes('AZ')) {
       // filter markers that include selected state into a variable 
@@ -171,6 +180,8 @@ class App extends Component {
 
   // narrow results by designation
   filterByDesignation(designation) {
+    // revert to no selected parks in results list
+    this.unselectParks();
     //***** steps repeated for each park designation *****
     if (designation.includes('Select All')) {
       // set variable for all parks
@@ -237,6 +248,8 @@ class App extends Component {
 
   // update query and run filterByQuery
   updateQuery = (query => {
+    // revert to no selected parks in results list
+    this.unselectParks();
     this.setState({
       query,
       timestamp: Date.now()
@@ -265,22 +278,56 @@ class App extends Component {
   // open infoWindow of clicked marker
   handleMarkerClick = (marker) => {
     this.closeInfoWindows();
+    this.unselectParks();
     marker.isOpen = true;
+    this.setState({ markers: Object.assign(this.state.markers, marker) })
+    const selectedPark = this.state.filteredParks.find(park => park.id === marker.id);
+    selectedPark.isSelected = true;
+    this.setState({ filteredParks: Object.assign(this.state.filteredParks, selectedPark) })
+  }
+
+  handleMarkerHover = (marker) => {
+    marker.isHovered = true;
     this.setState({ markers: Object.assign(this.state.markers, marker) })
   }
 
-  /* 
+  handleMarkerExit = (marker) => {
+    marker.isHovered = false;
+    this.setState({ markers: Object.assign(this.state.markers, marker) })
+  }
+
+  // reverts to no selected park in results list
+  unselectParks = () => {
+    const unselectedParks = this.state.filteredParks;
+    unselectedParks.map(park => park.isSelected = false)
+    this.setState({
+      filteredParks: unselectedParks
+    })
+  }
+
+   /* 
    * open infoWindow of appropriate marker when listItem is clicked 
    * close open infoWindows before opening a new one
   */
   handleParkClick = (park) => {
+    
     const marker = this.state.markers.find(marker => marker.id === park.id);
     if (marker.isOpen) {
       this.closeInfoWindows();
     } else {
     this.closeInfoWindows();
     marker.isOpen = true;
-    this.setState({ markers: Object.assign(this.state.markers, marker) })
+    this.setState({ 
+      markers: Object.assign(this.state.markers, marker),
+     })
+    }
+
+    if (park.isSelected) {
+      this.unselectParks();
+    } else {
+      this.unselectParks();
+      park.isSelected = true;
+      this.setState({ filteredParks: Object.assign(this.state.filteredParks, park)})
     }
   }
 
@@ -305,6 +352,7 @@ class App extends Component {
     this.setState({
       filteredMarkers: closedMarkers
     })
+    this.unselectParks();
   }
 
   render() {
@@ -317,7 +365,7 @@ class App extends Component {
             
             <SideBar {...this.state} filterByQuery={this.filterByQuery} filterByDesignation={this.filterByDesignation} selectByState={this.selectByState} handleParkClick={this.handleParkClick} handleParkHover={this.handleParkHover} handleParkExit={this.handleParkExit} updateQuery={this.updateQuery} />
             
-            <Map {...this.state} handleMarkerClick={this.handleMarkerClick} closeMarkers={this.closeMarkers} />
+            <Map {...this.state} handleMarkerClick={this.handleMarkerClick} closeMarkers={this.closeMarkers} handleMarkerHover={this.handleMarkerHover} handleMarkerExit={this.handleMarkerExit} />
 
           </div>
         );

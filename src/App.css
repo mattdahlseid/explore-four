@@ -204,6 +204,10 @@
   background-color: rgb(227, 233, 218);
 }
 
+.state-container:focus {
+  outline-width: 0;
+}
+
 .state-box {
   width: 46%;
   height: 48px;
@@ -222,7 +226,7 @@
 }
 
 .state-box:hover {
-  background-color: rgb(209, 82, 82);
+  background-color: rgb(255, 97, 97);
   color: black;
   box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
@@ -251,6 +255,7 @@
   margin: 12px auto 6px auto;
   font-size: 12px;
   font-family: 'Raleway', sans-serif;
+  outline-width: 0;
 }
 
 .search-box {
@@ -268,6 +273,7 @@
   font-size: 12px;
   margin: 2px auto;
   font-family: 'Raleway', sans-serif;
+  outline-width: 0;
 }
 
 .results-showing {
@@ -308,7 +314,7 @@
 
 .results-box {
   width: 90%;
-  height: calc(100% - 286px);
+  height: calc(100% - 288px);
   background-color: black;/*rgb(31, 44, 44)*/
   margin: 0 auto;
   overflow-y: scroll;
@@ -351,13 +357,18 @@
   cursor: pointer;
 }
 
+.results-box li:focus {
+  outline-width: 0;
+}
+
 .results-box li:last-child {
   border-bottom: 5px solid black;
   height: 77px;
 }
 
 .results-box li:hover {
-  background-color: rgb(39, 42, 43);
+  background-color:  rgb(0, 0, 0) !important;
+  color: white;
   position:relative;
   z-index: 1;
 }

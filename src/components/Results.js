@@ -21,7 +21,8 @@ function Results (props) {
                         onClick={() => props.handleParkClick(park)} 
                         onMouseEnter={() => props.handleParkHover(park)}
                         onMouseLeave={() => props.handleParkExit(park)}
-                        key={park.id}      
+                        key={park.id}  
+                        style={{ backgroundColor: park.isSelected ? 'rgb(28, 28, 28)' : 'rgb(65, 65, 65)' }}
                     >
                         <div className="results-park">                
                         <p className="results-park-name">
@@ -33,7 +34,11 @@ function Results (props) {
                         </div>
                         <br></br>
                         <div className="results-website">
-                            <a href={`${park.url}`} target="_blank" rel="noopener noreferrer" tabIndex={props.sideBarVisible ? "0" : "-1" } title={`Visit ${park.name} Website`}><i className="fas fa-globe"></i></a>
+                            <a 
+                                href={`${park.url}`}
+                                target="_blank" rel="noopener noreferrer" tabIndex={props.sideBarVisible ? "0" : "-1" } title={`Visit ${park.name} Website`}>
+                                <i className="fas fa-globe"></i>
+                            </a>
                         </div>
                     </li>
                 ))
