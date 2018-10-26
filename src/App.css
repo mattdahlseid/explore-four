@@ -101,6 +101,7 @@
 
 .iw {
   width: 272px;
+  min-width: 272px;
   background-color: rgb(244, 247, 240);
   font-family: 'Raleway', sans-serif;
   z-index: 2;
@@ -446,6 +447,6 @@ a {
 }
 
 @media screen and (max-width: 400px) {
-  .iw {width: 220px;}
+  .iw {min-width: 100%; width: 100%;}
   .iw-image {height: 150px;}
 }

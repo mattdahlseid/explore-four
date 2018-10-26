@@ -86,7 +86,7 @@ class Map extends Component {
   render() {
     return ( 
 
-      <main role="main" className="theMap" aria-label="map" style={{ width: this.props.sideBarVisible ? "calc(100% - 300px)" : "100%" }}>
+      <main role="main" className="theMap" aria-label="map" style={{ width: this.props.sideBarVisible ? "calc(100% - 300px)" : "calc(100%)" }}>
       { /* Display error over map if no data received from NPS API */ }
       {this.props.fetchError && (
         <div className="fetchErrorMap" role="alert" aria-label="error fetching location data">
