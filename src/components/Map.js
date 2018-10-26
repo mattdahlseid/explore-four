@@ -102,8 +102,7 @@ class Map extends Component {
           role="application"
           {...this.props}
           isMarkerShown
-          googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&client=gme-nianticinc"
-          // key=AIzaSyB3z0ZwjWqr2h3_x2vbPahVhsn86srQNiw
+          googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyB3z0ZwjWqr2h3_x2vbPahVhsn86srQNiw"
           loadingElement={<div style={{ height: `100vh` }} />}
           containerElement={<div style={{ height: `calc(100% - 40px)` }} />}
           mapElement={<div className="theMap" />}
