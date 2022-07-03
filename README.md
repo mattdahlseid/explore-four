@@ -30,7 +30,7 @@ Note: A service worker is implemented only in the production build. To run the a
 
 ## Dependencies
 
-* This project was boostrapped with [`create-react-app`](https://github.com/facebookincubator/create-react-app)
+* This project was bootstrapped with [`create-react-app`](https://github.com/facebookincubator/create-react-app)
 * [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/tutorial)
 * [`react-google-maps`](https://github.com/tomchentw/react-google-maps) integration component
 * [`react-dom`](https://www.npmjs.com/package/react-dom)
